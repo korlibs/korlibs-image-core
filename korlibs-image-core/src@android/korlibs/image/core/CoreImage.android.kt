@@ -1,5 +1,6 @@
 package korlibs.image.core
 
+import android.app.*
 import android.graphics.*
 import android.os.*
 import kotlinx.coroutines.*
@@ -8,6 +9,15 @@ import java.io.*
 actual val CoreImageFormatProvider_default: CoreImageFormatProvider = AndroidCoreImageFormatProvider
 
 object AndroidCoreImageFormatProvider : CoreImageFormatProvider {
+    override val isSupported: Boolean by lazy {
+        try {
+            @Suppress("DEPRECATION")
+            !ActivityManager.isRunningInTestHarness()
+        } catch (e: Throwable) {
+            false
+        }
+    }
+
     override suspend fun info(data: ByteArray): CoreImageInfo = withContext(Dispatchers.IO) {
         val options = BitmapFactory.Options().also { it.inJustDecodeBounds = true }
         Dispatchers.Default { BitmapFactory.decodeByteArray(data, 0, data.size, options) }
