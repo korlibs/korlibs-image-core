@@ -104,8 +104,9 @@ public abstract interface class korlibs/image/core/CoreImageFormatProvider {
 	public static final field Companion Lkorlibs/image/core/CoreImageFormatProvider$Companion;
 	public abstract fun decode ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun encode-jUZaLX8 (Lkorlibs/image/core/CoreImage;Ljava/lang/String;DLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun info ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun isSupported ()Z
+	public static synthetic fun encode-jUZaLX8$default (Lkorlibs/image/core/CoreImageFormatProvider;Lkorlibs/image/core/CoreImage;Ljava/lang/String;DLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun info ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun isSupported ()Z
 }
 
 public final class korlibs/image/core/CoreImageFormatProvider$Companion {
